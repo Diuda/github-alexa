@@ -70,4 +70,13 @@ const CancelAndStopIntentHandler = {
 };
 
 
+exports.handler = Alexa.SkillBuilders.custom()
+    .addRequestHandlers(LaunchRequestHandler,
+        HelloWorldIntentHandler,
+        HelpIntentHandler,
+        CancelAndStopIntentHandler,
+        SessionEndedRequestHandler)
+    .lambda();
+
+
 
