@@ -14,11 +14,11 @@ const LaunchRequestHandler = {
 
         return handlerInput.responseBuilder
                     .speak(speechText)
-                    .repromt(speechText)
+                    .reprompt(speechText)
                     .withSimpleCard('Hello World', speechText)
                     .getResponse();
     }
-}
+};
 
 const GithubRepoBranch = {
     canHandle(handlerInput){
@@ -36,7 +36,7 @@ const GithubRepoBranch = {
                     .withSimpleCard('Github', speechText)
                     .getResponse();
     }
-}
+};
 
 const HelpIntentHandler = {
     canHandle(handlerInput) {
@@ -70,12 +70,11 @@ const CancelAndStopIntentHandler = {
 };
 
 
-exports.handler = Alexa.SkillBuilders.custom()
+exports.handler = alexa.SkillBuilders.custom()
     .addRequestHandlers(LaunchRequestHandler,
-        HelloWorldIntentHandler,
+        GithubRepoBranch,
         HelpIntentHandler,
-        CancelAndStopIntentHandler,
-        SessionEndedRequestHandler)
+        CancelAndStopIntentHandler)
     .lambda();
 
 
