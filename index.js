@@ -19,3 +19,24 @@ const LaunchRequestHandler = {
                     .getResponse();
     }
 }
+
+const GithubRepoBranch = {
+    canHandle(handlerInput){
+        return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+            && handlerInput.requestEnvelope.request.intent.name === 'brepo'
+    },
+
+    handle(handlerInput){
+        //logic for github repo branches reterival
+
+        const speechText = 'Github response';
+
+        return handlerInput.responseBuilder
+                    .speak(speechText)
+                    .withSimpleCard('Github', speechText)
+                    .getResponse();
+    }
+}
+
+
+
